@@ -2,6 +2,7 @@
   "update_url": "https://clients2.google.com/service/update2/crx",
 
   "manifest_version": 3,
+  "homepage_url": "https://github.com/stanley2058/pixiv-search",
 
   "name": "__MSG_appName__",
   "description": "__MSG_appDesc__",
