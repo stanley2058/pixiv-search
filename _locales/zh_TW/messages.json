@@ -1,0 +1,17 @@
+{
+  "appName": {
+    "message": "Pixiv 搜尋"
+  },
+  "appDesc": {
+    "message": "方便直接以Pixiv ID找圖片，或是直接關鍵字搜尋Pixiv"
+  },
+  "Search": {
+    "message": "關鍵字搜尋:"
+  },
+  "btnSearch": {
+    "message": "搜尋"
+  },
+  "contentMenuText": {
+    "message": "搜尋"
+  }
+}

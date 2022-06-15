@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pixiv Search</title>
+    <script src="popup.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+      body {
+        font-family: "Noto Sans", sans-serif;
+        text-align: center;
+      }
+      button {
+        background-color: hsl(203, 92%, 75%);
+        color: black;
+        padding: 0.3em 1em 0.25em 1em;
+        border-radius: 0.25em;
+        border: none;
+        margin-top: 0.3em;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: hsl(203, 92%, 85%);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Pixiv 搜尋</h1>
+      <div>
+        <h3>Pixiv ID:</h3>
+        <input type="text" id="ID_search" name="ID_search" />
+        <button id="btnID">搜尋</button>
+      </div>
+      <div>
+        <h3 id="SearchText"></h3>
+        <input type="text" id="name_search" name="name_search" />
+        <button id="btnName">搜尋</button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "appName": {
+    "message": "Pixiv Search"
+  },
+  "appDesc": {
+    "message": "Direct search from Pixiv ID, or search Pixiv by keywords."
+  },
+  "Search": {
+    "message": "Keywords Search:"
+  },
+  "btnSearch": {
+    "message": "Submit"
+  },
+  "contentMenuText": {
+    "message": "Search"
+  }
+}

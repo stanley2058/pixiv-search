@@ -1,0 +1,17 @@
+{
+  "appName": {
+    "message": "Pixiv 検索"
+  },
+  "appDesc": {
+    "message": "Pixiv ID で直接画像を検索する、それども Pixiv に作品検索。"
+  },
+  "Search": {
+    "message": "作品検索:"
+  },
+  "btnSearch": {
+    "message": "検索"
+  },
+  "contentMenuText": {
+    "message": "検索"
+  }
+}
