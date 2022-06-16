@@ -19,8 +19,8 @@ function search(url) {
 }
 
 window.addEventListener("load", async () => {
-  document.querySelector("h1").innerHTML = chrome.i18n.getMessage("appName");
-  document.getElementById("SearchText").innerHTML =
+  document.querySelector("h1").innerText = chrome.i18n.getMessage("appName");
+  document.getElementById("SearchText").innerText =
     chrome.i18n.getMessage("Search");
   document.getElementById("btnID").innerText = document.getElementById(
     "btnName"
