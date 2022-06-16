@@ -1,6 +1,4 @@
 {
-  "update_url": "https://clients2.google.com/service/update2/crx",
-
   "manifest_version": 2,
   "homepage_url": "https://github.com/stanley2058/pixiv-search",
 
