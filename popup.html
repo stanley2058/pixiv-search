@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Pixiv Search</title>
-    <script src="popup.js"></script>
+    <script defer src="popup.js"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
       body {
@@ -29,13 +29,13 @@
       <h1>Pixiv 搜尋</h1>
       <div>
         <h3>Pixiv ID:</h3>
-        <input type="text" id="ID_search" name="ID_search" />
-        <button id="btnID">搜尋</button>
+        <input type="text" id="inp-id" />
+        <button id="btn-id">搜尋</button>
       </div>
       <div>
-        <h3 id="SearchText"></h3>
-        <input type="text" id="name_search" name="name_search" />
-        <button id="btnName">搜尋</button>
+        <h3 id="search-label"></h3>
+        <input type="text" id="inp-name" />
+        <button id="btn-name">搜尋</button>
       </div>
     </div>
   </body>

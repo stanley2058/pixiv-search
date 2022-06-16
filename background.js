@@ -1,40 +1,34 @@
-function onClickHandler(info, tab) {
+// @ts-ignore
+const c = /** @type {Chrome} */ (chrome);
+
+function onClickHandler(info) {
+  const text = info.selectionText;
   const url =
     info.menuItemId === "PixivID"
-      ? "https://www.pixiv.net/artworks/:keyword:"
-      : "https://www.pixiv.net/tags/:keyword:/artworks?s_mode=s_tag";
-
-  chrome.tabs.executeScript(
-    {
-      code: "window.getSelection().toString();",
-    },
-    (selection) =>
-      chrome.tabs.create({
-        active: true,
-        url: url.replace(":keyword:", selection[0]),
-      })
-  );
+      ? `https://www.pixiv.net/artworks/${text}`
+      : `https://www.pixiv.net/tags/${text}/artworks?s_mode=s_tag`;
+  c.tabs.create({ active: true, url });
 }
-chrome.contextMenus.onClicked.addListener(onClickHandler);
+c.contextMenus.onClicked.addListener(onClickHandler);
 
-chrome.runtime.onInstalled.addListener((details) => {
-  chrome.contextMenus.create(
+c.runtime.onInstalled.addListener(() => {
+  c.contextMenus.create(
     {
       type: "normal",
-      title: chrome.i18n.getMessage("contentMenuText") + " Pixiv ID: [ %s ]",
+      title: c.i18n.getMessage("contentMenuText") + " Pixiv ID: [ %s ]",
       id: "PixivID",
       contexts: ["selection"],
     },
-    function () {}
+    () => {}
   );
 
-  chrome.contextMenus.create(
+  c.contextMenus.create(
     {
       type: "normal",
-      title: chrome.i18n.getMessage("contentMenuText") + " Pixiv: %s",
+      title: c.i18n.getMessage("contentMenuText") + " Pixiv: %s",
       id: "PixivName",
       contexts: ["selection"],
     },
-    function () {}
+    () => {}
   );
 });

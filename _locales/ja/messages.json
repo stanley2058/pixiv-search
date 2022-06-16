@@ -5,7 +5,7 @@
   "appDesc": {
     "message": "Pixiv ID で直接画像を検索する、それども Pixiv に作品検索。"
   },
-  "Search": {
+  "search": {
     "message": "作品検索:"
   },
   "btnSearch": {

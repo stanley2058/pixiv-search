@@ -5,7 +5,7 @@
   "appDesc": {
     "message": "Direct search from Pixiv ID, or search Pixiv by keywords."
   },
-  "Search": {
+  "search": {
     "message": "Keywords Search:"
   },
   "btnSearch": {

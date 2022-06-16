@@ -5,7 +5,7 @@
   "appDesc": {
     "message": "方便直接以Pixiv ID找圖片，或是直接關鍵字搜尋Pixiv"
   },
-  "Search": {
+  "search": {
     "message": "關鍵字搜尋:"
   },
   "btnSearch": {
