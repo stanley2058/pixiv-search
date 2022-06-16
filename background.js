@@ -1,28 +1,23 @@
-async function onClickHandler(info, tab) {
-  const baseUrl = "https://www.pixiv.net/";
+function onClickHandler(info, tab) {
   const url =
     info.menuItemId === "PixivID"
-      ? `${baseUrl}artworks/:keyword:`
-      : `${baseUrl}tags/:keyword:/artworks?s_mode=s_tag`;
+      ? "https://www.pixiv.net/artworks/:keyword:"
+      : "https://www.pixiv.net/tags/:keyword:/artworks?s_mode=s_tag";
 
-  let result;
-  try {
-    [{ result }] = await chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      function: () => getSelection().toString(),
-    });
-    chrome.tabs.create({
-      active: true,
-      url: url.replace(":keyword:", result),
-    });
-  } catch (e) {
-    return; // ignoring an unsupported page like chrome://extensions
-  }
+  chrome.tabs.executeScript(
+    {
+      code: "window.getSelection().toString();",
+    },
+    (selection) =>
+      chrome.tabs.create({
+        active: true,
+        url: url.replace(":keyword:", selection[0]),
+      })
+  );
 }
-
 chrome.contextMenus.onClicked.addListener(onClickHandler);
 
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener((details) => {
   chrome.contextMenus.create(
     {
       type: "normal",

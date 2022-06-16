@@ -1,4 +1,6 @@
 function searchId(id, event = null) {
+  console.log(id);
+  console.log(event);
   if (!id.trim()) return;
   if (event) {
     if (event.key.toLowerCase() !== "enter") return;
@@ -7,6 +9,8 @@ function searchId(id, event = null) {
   search(`https://www.pixiv.net/artworks/${id}`);
 }
 function serachKeyword(keyword, event = null) {
+  console.log(keyword);
+  console.log(event);
   if (!keyword.trim()) return;
   if (event) {
     if (event.key.toLowerCase() !== "enter") return;
@@ -18,7 +22,7 @@ function search(url) {
   chrome.tabs.create({ active: true, url });
 }
 
-window.addEventListener("load", async () => {
+window.addEventListener("load", () => {
   document.querySelector("h1").innerText = chrome.i18n.getMessage("appName");
   document.getElementById("SearchText").innerText =
     chrome.i18n.getMessage("Search");
@@ -42,16 +46,15 @@ window.addEventListener("load", async () => {
     .getElementById("name_search")
     .addEventListener("keyup", (e) => serachKeyword(inputWord.value, e));
 
-  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  let result;
-  try {
-    [{ result }] = await chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      function: () => getSelection().toString(),
-    });
-    if (!!parseInt(result)) inputId.value = result;
-    inputWord.value = result;
-  } catch (e) {
-    return; // ignoring an unsupported page like chrome://extensions
-  }
+  chrome.tabs.executeScript(
+    {
+      code: "window.getSelection().toString();",
+    },
+    (selection) => {
+      if (selection) {
+        if (!!parseInt(selection[0])) inputId.value = selection[0];
+        inputWord.value = selection[0];
+      }
+    }
+  );
 });
