@@ -11,24 +11,22 @@ function onClickHandler(info) {
 }
 c.contextMenus.onClicked.addListener(onClickHandler);
 
-c.runtime.onInstalled.addListener(() => {
-  c.contextMenus.create(
-    {
-      type: "normal",
-      title: c.i18n.getMessage("contentMenuText") + " Pixiv ID: [ %s ]",
-      id: "PixivID",
-      contexts: ["selection"],
-    },
-    () => {}
-  );
+c.contextMenus.create(
+  {
+    type: "normal",
+    title: c.i18n.getMessage("contentMenuText") + " Pixiv ID: [ %s ]",
+    id: "PixivID",
+    contexts: ["selection"],
+  },
+  () => {}
+);
 
-  c.contextMenus.create(
-    {
-      type: "normal",
-      title: c.i18n.getMessage("contentMenuText") + " Pixiv: %s",
-      id: "PixivName",
-      contexts: ["selection"],
-    },
-    () => {}
-  );
-});
+c.contextMenus.create(
+  {
+    type: "normal",
+    title: c.i18n.getMessage("contentMenuText") + " Pixiv: %s",
+    id: "PixivName",
+    contexts: ["selection"],
+  },
+  () => {}
+);
